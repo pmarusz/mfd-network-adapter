@@ -19,7 +19,7 @@ jobs:
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     with:
-      REPOSITORY_NAME: ${{ github.repository }}
+      REPOSITORY_NAME: ${{ github.event.pull_request.head.repo.full_name }}
       BRANCH_NAME: ${{ github.head_ref }}
       PYTHON_VERSION: ${{ matrix.python_version }}
       PUSH_TAG: ${{ matrix.push_tag }}
@@ -27,3 +27,4 @@ jobs:
       GIT_USER: 'mfd-intel-bot'
       GIT_EMAIL: 'mfd_intel_bot@intel.com'
       PROJECT_NAME: 'mfd-network-adapter'
+      
